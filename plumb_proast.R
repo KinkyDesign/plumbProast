@@ -1,9 +1,27 @@
-library(plumber)
-library(jsonlite)
+# script name 
+# plumb_proast.R
 
-#* @apiTitle PROAST v61.5
+#* @apiTitle RUN PROAST v61.5
+#* @apiDescriptions
+#* For details https://www.rivm.nl/en/proast 
+
+# Load training data and parameters
+changeV<- read.table('change_variables.txt',col.names='change_variables',colClasses='character')
+load('trial1.RData')
+library(proast61.5)
+
+# Core predict function
+# define parameters with type and description
+# name endpoint
+# return output as json
+
+#* @param dataset
+#* @param predictionFeature
+#* @param parameters
 
 #* @post /proast61
+#* @json
+
 enm.proast61 <-
 function(dataset,predictionFeature,parameters){
     #dataset:= list of 2 objects - 
@@ -19,10 +37,6 @@ function(dataset,predictionFeature,parameters){
     #than the threshold value, a stop message is returned.).
  
  #   Sys.setenv(DISPLAY=1)
-	data <- list(dataset,predictionFeature,parameters) 
-	dataset <- data[[1]]
-	predictionFeature <- data[[2]]
-	parameters <- data[[3]]
 
     dat<- dataset$dataEntry[,2]# data table
     
@@ -38,8 +52,6 @@ function(dataset,predictionFeature,parameters){
     #load(changeV)
     #load(ans.all)
 #data(sysdata, envir=environment())
-    changeV<- read.table('change_variables.txt',col.names='change_variables',colClasses='character')
-    load('trial1.RData')
 
     ans.all.new<- ans.all
     
