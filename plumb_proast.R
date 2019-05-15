@@ -64,9 +64,7 @@ function(dataset,predictionFeature,parameters){
 	ans.all.new[[pos.ans.all[7]]]<- colnames(dat) #varnames
 	ans.all.new[[pos.ans.all[8]]]<- dat1.xname #x name
 	ans.all.new[[pos.ans.all[9]]]<- dat1.yname #y name
-	    
-	# PREPEI NA ALLAKSW KAI TA BOOTS gia bootstrap options - sta parameters
-	    
+	        
 	if(range(dat[,depend.indx])[1]<=0){ans.all.new$auto.detlim<- TRUE}  #ans.all.new$detlim<- 0.001} # to avoid question for detection limit
 	    
 	ans.all.new$cont <- TRUE #; ans.all<- TRUE
