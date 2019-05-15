@@ -24,6 +24,7 @@ library(proast61.5)
 #* @post /proast61
 #* @json
 
+# original code by GTsiliki (https://github.com/GTsiliki, g_tsiliki@hotmail.com) 
 enm.proast61 <-
 function(dataset,predictionFeature,parameters){
 	#dataset:= list of 2 objects - 
