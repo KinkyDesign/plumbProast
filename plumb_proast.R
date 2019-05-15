@@ -2,14 +2,17 @@
 # plumb_proast.R
 
 #* @apiTitle RUN PROAST v61.5
-#* @apiDescriptions
+#* @apiDescriptions PROAST is a software package that has been developed by the Dutch 
+#* National Institute for Public Health and the Environment for the statistical ana-
+#* lysis of dose-response data. It can be used for 
+#* 1) dose-response modelling, 
+#* 2) deriving a BenchMark Dose in human risk assessment, and 
+#* 3) deriving an effect concentration in ecotoxicological risk assessment.
 #* For details https://www.rivm.nl/en/proast 
 
 # Load training data and parameters
-#changeV<- read.table('change_variables.txt',col.names='change_variables',colClasses='character')
-#load('trial1.RData')
-changeV<- read.table('apps/change_variables.txt',col.names='change_variables',colClasses='character')
-load('apps/trial1.RData')
+changeV<- read.table('change_variables.txt',col.names='change_variables',colClasses='character')
+load('trial1.RData')
 library(jsonlite)
 library(proast61.5)
 
@@ -17,10 +20,6 @@ library(proast61.5)
 # define parameters with type and description
 # name endpoint
 # return output as json
-
-#* @param dataset
-#* @param predictionFeature
-#* @param parameters
 
 #* @post /proast61
 #* @json
@@ -80,7 +79,7 @@ function(dataset,predictionFeature,parameters){
 	sink("report_from_screen.txt",append=TRUE)
 	assign(".ypos", 95, envir = .GlobalEnv)
 
-	devAskNewPage(ask = FALSE) #@	
+	# devAskNewPage(ask = FALSE) 	
 	res1<- f.quick.con(ans.all.new,validate=T)#
 	sink()
 	#sink.number() 
@@ -122,7 +121,7 @@ function(dataset,predictionFeature,parameters){
 			}
 	}
 	if(dev.cur()>1){for(j in 1:(dev.cur()-1)){dev.off()}}
-	graphics.off() #@
+	#graphics.off() 
 
 	liks.mat<- rbind(res1$logliks,res1$EXP$logliks,res1$HILL$logliks)
 	thres.mat<- c(which(liks.mat[,1]=='--'),dim(liks.mat)[1]+1)
@@ -151,4 +150,5 @@ function(dataset,predictionFeature,parameters){
 	    
 	return(outP)
 }
+
 
