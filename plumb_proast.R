@@ -2,12 +2,12 @@
 # plumb_proast.R
 
 #* @apiTitle RUN PROAST v61.5
-#* @apiDescriptions PROAST is a software package that has been developed by the Dutch 
+#* @apiDescription PROAST is a software package that has been developed by the Dutch 
 #* National Institute for Public Health and the Environment for the statistical ana-
-#* lysis of dose-response data. It can be used for 
-#* 1) dose-response modelling, 
-#* 2) deriving a BenchMark Dose in human risk assessment, and 
-#* 3) deriving an effect concentration in ecotoxicological risk assessment.
+#* lysis of dose-response data. It can be used for \n
+#* 1) dose-response modelling, \n
+#* 2) deriving a BenchMark Dose in human risk assessment, and \n 
+#* 3) deriving an effect concentration in ecotoxicological risk assessment. \n
 #* For details https://www.rivm.nl/en/proast 
 
 # Load training data and parameters
